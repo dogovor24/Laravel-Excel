@@ -1,15 +1,26 @@
 # Changelog
+
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+
+Please view https://github.com/SpartnerNL/Laravel-Excel/releases for the most recent changelog
+
+### Fixed
+- A bug where the package would attempt to create a temporary file in the wrong directory when using a multi-server setup with non-identical storage paths.
+
+
 
 ## [3.1.25] - 2020-11-13
 
 ### Added
 
-- Added an ability to prepare rows before appending rows to sheet. Just add `prepareRows` method for your export class if needed.
-- Added an ability to catch exceptions from `QueueExport` job. Just add `failed` method for your export class if needed.
-- Added an ability to set locale for queued export. Just implement `Illuminate\Contracts\Translation\HasLocalePreference` for your export.
+- Added an ability to prepare rows before appending rows to sheet. Just add
+  `prepareRows` method for your export class if needed.
+- Added an ability to catch exceptions from `QueueExport` job. Just add `failed`
+  method for your export class if needed.
+- Added an ability to set locale for queued export. Just implement
+  `Illuminate\Contracts\Translation\HasLocalePreference` for your export.
 - Added `JsonSerializable` support in `Maatwebsite\Excel\Validators\Failure`.
 - Added `$maxExceptions` support in `Maatwebsite\Excel\Jobs\ReadChunk.php`.
 - Added support to upsert models by implementing the `WithUpserts` concern.
@@ -29,6 +40,7 @@ All notable changes to this project will be documented in this file.
 ## [3.1.23] - 2020-09-29
 
 ### Added
+
 - Added `ignore_empty` setting to `config/excel.php`
 - Added `strict_null_comparison` setting to `config/excel.php`
 
@@ -40,6 +52,7 @@ All notable changes to this project will be documented in this file.
 ## [3.1.21] - 2020-08-06
 
 ### Added
+
 - Added WithProperties concern
 - Added default spreadsheet properties config
 - Added WithColumnWidths concern
@@ -47,15 +60,19 @@ All notable changes to this project will be documented in this file.
 - Config setting to configure cell caching
 
 ### Changed
+
 - Sheet titles longer than 31 chars get trimmed.
 - Sheet titles with unsupported chars get cleaned.
 
 ### Fixed
-- Fixed issue with using ShouldAutosize in combination with FromView column widths.
+
+- Fixed issue with using ShouldAutosize in combination with FromView column
+  widths.
 
 ## [3.1.20] - 2020-07-22
 
 ### Added
+
 - Re-sycing remote temporary file
 - Remember row number
 - Remember chunk offset
@@ -64,6 +81,7 @@ All notable changes to this project will be documented in this file.
 - Publishing the stubs
 
 ### Changed
+
 - Interacting with queued jobs
 - Retry until and middleware on queued imports
 - Using WithValidation with FromCollection & FromArray
@@ -71,9 +89,11 @@ All notable changes to this project will be documented in this file.
 - Bump of minimum version PhpSpreadsheet
 
 ### Fixed
+
 - Fixed test helper docblocks on the Excel facade.
 - Fix for importing with a start row beyond the highest row.
-- Fixed `BeforeSheet` and `AfterSheet` events receiving exportable instance instead of importable when calling on an Import.
+- Fixed `BeforeSheet` and `AfterSheet` events receiving exportable instance
+  instead of importable when calling on an Import.
 - Fix for value binders not working in queued exports.
 - Fix when using WithLimit concern when having less rows than the limit.
 - Fix AfterImport job being fired twice if not using queueing.
