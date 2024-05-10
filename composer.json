@@ -2,7 +2,7 @@
   "name": "dogovor24/excel",
   "description": "Supercharged Excel exports and imports in Laravel",
   "license": "MIT",
-  "version": "3.1.25.1",
+  "version": "3.1.25.2",
   "keywords": [
     "laravel",
     "php",
